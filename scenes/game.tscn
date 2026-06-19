@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://csbq5l7nxy1ek"]
+
+[ext_resource type="Script" uid="uid://r0u130u5r8g5" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://bhqllevjas8mu" path="res://assets/sprites/background.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://crasqyxa7u7po" path="res://scenes/bird.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://tbw06iccmw2r" path="res://scripts/pipe_spawner.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bgpf4jpg3h0rx" path="res://scenes/ground.tscn" id="5_iywne"]
+
+[node name="Game" type="Node2D" unique_id=1813440719]
+script = ExtResource("1_uwrxv")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=95183108]
+texture = ExtResource("2_yqjtg")
+
+[node name="Bird" parent="." unique_id=923409510 instance=ExtResource("3_lnu2h")]
+position = Vector2(150, 450)
+
+[node name="PipeSpawner" type="Node2D" parent="." unique_id=975118557]
+script = ExtResource("4_lbhrr")
+
+[node name="Ground" parent="." unique_id=269031716 instance=ExtResource("5_iywne")]
+position = Vector2(288, 968)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=868763332]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1657176642]
+offset_left = 288.0
+offset_top = 80.0
+offset_right = 288.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[node name="GameOverPanel" type="Control" parent="CanvasLayer" unique_id=124700486]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=913517797]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 350.0
+offset_right = 288.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 36
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverPanel" unique_id=143806175]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 450.0
+offset_right = 338.0
+offset_bottom = 500.0
+text = "Restart"
+
+[connection signal="pressed" from="CanvasLayer/GameOverPanel/RestartButton" to="." method="_on_start_button_pressed"]
