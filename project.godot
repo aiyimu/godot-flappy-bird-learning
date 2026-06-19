@@ -15,12 +15,22 @@ config/description="A Flappy Bird clone built with Godot Engine 4.x for learning
 config/tags=PackedStringArray("game", "2d", "flappy-bird", "clone")
 config/features=PackedStringArray("4.6")
 
+[autoload]
+
+MCPRuntime="*uid://cubjvl0l0iiy6"
+GameManager="*res://scripts/game_manager.gd"
+ScoreManager="*res://scripts/score_manager.gd"
+
 [display]
 
 window/size/viewport_width=576
 window/size/viewport_height=1024
 window/size/resizable=false
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 
 [input]
 
