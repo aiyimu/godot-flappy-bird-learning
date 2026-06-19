@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://1joydf0si5qb"]
+
+[ext_resource type="Script" uid="uid://dbbeie0npmli5" path="res://scripts/pipe_pair.gd" id="1_m2bs7"]
+[ext_resource type="PackedScene" uid="uid://l34jwq0bdvlm" path="res://scenes/pipe.tscn" id="1_t8jum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8jum"]
+size = Vector2(60, 120)
+
+[node name="PipePair" type="Node2D" unique_id=95649970]
+script = ExtResource("1_m2bs7")
+
+[node name="TopPipe" parent="." unique_id=1907078553 instance=ExtResource("1_t8jum")]
+position = Vector2(0, -200)
+rotation = 3.14159
+
+[node name="BottomPipe" parent="." unique_id=793153496 instance=ExtResource("1_t8jum")]
+position = Vector2(0, 200)
+
+[node name="ScoreZone" type="Area2D" parent="." unique_id=1219570464]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreZone" unique_id=354792874]
+shape = SubResource("RectangleShape2D_t8jum")
+
+[node name="ScoreMarker" type="Marker2D" parent="." unique_id=1351175463]
