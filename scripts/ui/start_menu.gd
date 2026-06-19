@@ -1,8 +1,8 @@
 extends Control
 
 
-## 游戏场景路径
-const GAME_SCENE: String = "res://scenes/game.tscn"
+## 开始游戏信号
+signal start_game
 
 ## 最高分标签
 @onready var best_score_label: Label = $BestScoreLabel
@@ -24,6 +24,6 @@ func update_best_score_display() -> void:
 	best_score_label.text = "Best: " + str(ScoreManager.best_score)
 
 
-## 开始按钮回调：切换到游戏场景
+## 开始按钮回调：发射开始游戏信号
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file(GAME_SCENE)
+	start_game.emit()

@@ -1,6 +1,9 @@
 extends Node2D
 
 
+## 返回菜单信号
+signal back_to_menu
+
 @onready var bird: CharacterBody2D = $Bird
 @onready var pipe_spawner: Node2D = $PipeSpawner
 @onready var ground: Node2D = $Ground
@@ -73,5 +76,5 @@ func update_score_display() -> void:
 
 
 func _on_restart_requested() -> void:
-	# 重新开始游戏
-	get_tree().reload_current_scene()
+	# 返回主菜单
+	back_to_menu.emit()
