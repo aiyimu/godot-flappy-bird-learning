@@ -4,9 +4,21 @@ extends Node2D
 ## 管道间隙大小
 @export var gap_size: float = 200.0
 
+## 管道移动速度（像素/秒）
+@export var speed: float = 150.0
+
 
 func _ready() -> void:
 	setup_pipes()
+
+
+func _process(delta: float) -> void:
+	# 移动整个管道对（包含管道和得分区域）
+	position.x -= speed * delta
+
+	# 超出屏幕左侧后销毁
+	if global_position.x < -100:
+		queue_free()
 
 
 ## 管道精灵高度（与屏幕等高，确保始终覆盖到屏幕边缘）

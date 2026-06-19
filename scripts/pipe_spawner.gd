@@ -63,9 +63,9 @@ func _on_spawn() -> void:
 	_start_next_timer()
 
 
-## 递归设置管道对中所有管道的速度
+## 递归设置管道对中所有节点的速度
 func _set_pipe_speed(node: Node, speed: float) -> void:
-	if node.has_method("set_speed"):
+	if "speed" in node:
 		node.set("speed", speed)
 	for child in node.get_children():
 		_set_pipe_speed(child, speed)
