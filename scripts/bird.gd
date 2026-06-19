@@ -48,6 +48,17 @@ func _physics_process(delta: float) -> void:
 	# 移动角色
 	move_and_slide()
 
+	# 物理碰撞检测：检查是否撞到管道或地面
+	# move_and_slide() 会阻止 CharacterBody2D 穿过碰撞体，
+	# 但 Area2D 的 body_entered 信号需要重叠才会触发，
+	# 因此使用 get_slide_collision_count() 检测物理碰撞
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider and (collider.is_in_group("obstacle") or collider.is_in_group("ground")):
+			die()
+			return
+
 	# 旋转动画：根据垂直速度调整旋转角度
 	var target_rotation: float = clamp(velocity.y / max_fall_speed, -0.5, 0.5) * 1.5
 	rotation = lerp(rotation, target_rotation, rotation_speed * delta)
