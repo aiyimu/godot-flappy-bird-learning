@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqhkv"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3po83"]
+size = Vector2(24, 24)
+
 [node name="Bird" type="CharacterBody2D" unique_id=923409510]
 script = ExtResource("1_kqhkv")
 
@@ -14,3 +17,8 @@ shape = SubResource("RectangleShape2D_kqhkv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2070352130]
 texture = ExtResource("2_3po83")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1920137513]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1018310790]
+shape = SubResource("RectangleShape2D_3po83")

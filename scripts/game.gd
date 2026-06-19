@@ -20,6 +20,9 @@ func _ready() -> void:
 	# 连接小鸟死亡信号
 	bird.bird_died.connect(_on_bird_died)
 
+	# 连接小鸟得分信号
+	bird.score_passed.connect(_on_bird_score_passed)
+
 	# 连接 ScoreManager 信号
 	ScoreManager.score_updated.connect(_on_score_updated)
 
@@ -41,6 +44,10 @@ func _on_game_over() -> void:
 func _on_bird_died() -> void:
 	ScoreManager.save_high_score()
 	GameManager.end_game()
+
+
+func _on_bird_score_passed() -> void:
+	ScoreManager.add_score()
 
 
 func _on_score_changed(_new_score: int) -> void:

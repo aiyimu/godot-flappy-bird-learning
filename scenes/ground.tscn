@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bnqu8fc2mxnln" path="res://scripts/ground.gd" id="1_pybca"]
 [ext_resource type="Texture2D" uid="uid://dxlnrs6cwhe7g" path="res://assets/sprites/ground.png" id="2_mi8v4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
+size = Vector2(576, 112)
+
 [node name="Ground" type="Node2D" unique_id=269031716]
 script = ExtResource("1_pybca")
 
@@ -11,3 +14,8 @@ texture = ExtResource("2_mi8v4")
 
 [node name="Sprite2" type="Sprite2D" parent="." unique_id=1009859645]
 texture = ExtResource("2_mi8v4")
+
+[node name="GroundBody" type="StaticBody2D" parent="." unique_id=42521367 groups=["ground"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody" unique_id=2061942538]
+shape = SubResource("RectangleShape2D_mi8v4")
