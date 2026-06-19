@@ -6,6 +6,12 @@
 [ext_resource type="Script" uid="uid://tbw06iccmw2r" path="res://scripts/pipe_spawner.gd" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bgpf4jpg3h0rx" path="res://scenes/ground.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" path="res://scenes/ui/game_over.tscn" id="6_gameover"]
+[ext_resource type="Shader" path="res://assets/shaders/pixelate.gdshader" id="7_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pixelate"]
+shader = ExtResource("7_shader")
+shader_parameter/pixel_size = 4.0
+shader_parameter/color_count = 32
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -25,6 +31,13 @@ script = ExtResource("4_lbhrr")
 position = Vector2(288, 968)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PixelateOverlay" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_pixelate")
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 1, 1, 1)
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
 offset_left = 288.0
