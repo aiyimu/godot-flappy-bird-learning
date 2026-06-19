@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://dgedhjyrmf02s" path="res://scripts/ui/start_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://bhqllevjas8mu" path="res://assets/sprites/background.png" id="2_bg"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(288, 512)
+texture = ExtResource("2_bg")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 200.0
+offset_right = 488.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 56
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+text = "Flappy Bird"
+horizontal_alignment = 1
+
+[node name="BestScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 400.0
+offset_right = 388.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Best: 0"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 600.0
+offset_right = 338.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 24
+text = "Start"
