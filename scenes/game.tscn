@@ -10,6 +10,7 @@
 script = ExtResource("1_uwrxv")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=95183108]
+position = Vector2(288, 512)
 texture = ExtResource("2_yqjtg")
 
 [node name="Bird" parent="." unique_id=923409510 instance=ExtResource("3_lnu2h")]

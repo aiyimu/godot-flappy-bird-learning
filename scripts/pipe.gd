@@ -8,6 +8,6 @@ extends StaticBody2D
 func _process(delta: float) -> void:
 	position.x -= speed * delta
 
-	# 超出屏幕左侧后销毁（屏幕宽度576，管道宽度约52）
-	if position.x < -100:
+	# 超出屏幕左侧后销毁（使用世界坐标判断）
+	if global_position.x < -100:
 		queue_free()

@@ -10,11 +10,10 @@ size = Vector2(60, 120)
 script = ExtResource("1_m2bs7")
 
 [node name="TopPipe" parent="." unique_id=1907078553 instance=ExtResource("1_t8jum")]
-position = Vector2(0, -200)
-rotation = 3.14159
+position = Vector2(0, -612)
 
 [node name="BottomPipe" parent="." unique_id=793153496 instance=ExtResource("1_t8jum")]
-position = Vector2(0, 200)
+position = Vector2(0, 612)
 
 [node name="ScoreZone" type="Area2D" parent="." unique_id=1219570464]
 

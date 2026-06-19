@@ -19,8 +19,11 @@ extends Node2D
 ## 管道对场景
 const PIPE_PAIR_SCENE: PackedScene = preload("res://scenes/pipe_pair.tscn")
 
-## 生成 X 坐标（屏幕右侧外）
-const SPAWN_X: float = 400.0
+## 屏幕宽度
+const SCREEN_WIDTH: float = 576.0
+
+## 生成 X 坐标（屏幕右侧外，管道宽度约52，留出余量）
+const SPAWN_X: float = SCREEN_WIDTH + 60.0
 
 ## Y 坐标范围
 const Y_MIN: float = 250.0

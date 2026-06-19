@@ -13,7 +13,7 @@ config_version=5
 config/name="Flappy Bird Clone"
 config/description="A Flappy Bird clone built with Godot Engine 4.x for learning purposes."
 config/tags=PackedStringArray("game", "2d", "flappy-bird", "clone")
-run/main_scene="uid://crasqyxa7u7po"
+run/main_scene="uid://csbq5l7nxy1ek"
 config/features=PackedStringArray("4.6")
 
 [autoload]
