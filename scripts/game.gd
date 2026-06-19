@@ -6,6 +6,10 @@ extends Node2D
 @onready var ground: Node2D = $Ground
 @onready var score_label: Label = $CanvasLayer/ScoreLabel
 @onready var game_over_panel: Control = $CanvasLayer/GameOverPanel
+@onready var game_over_label: Label = $CanvasLayer/GameOverPanel/GameOverLabel
+@onready var final_score_label: Label = $CanvasLayer/GameOverPanel/FinalScoreLabel
+@onready var best_score_label: Label = $CanvasLayer/GameOverPanel/BestScoreLabel
+@onready var new_best_label: Label = $CanvasLayer/GameOverPanel/NewBestLabel
 
 
 func _ready() -> void:
@@ -15,7 +19,6 @@ func _ready() -> void:
 	# 连接 GameManager 信号
 	GameManager.game_started.connect(_on_game_started)
 	GameManager.game_over.connect(_on_game_over)
-	GameManager.score_changed.connect(_on_score_changed)
 
 	# 连接小鸟死亡信号
 	bird.bird_died.connect(_on_bird_died)
@@ -25,12 +28,15 @@ func _ready() -> void:
 
 	# 连接 ScoreManager 信号
 	ScoreManager.score_updated.connect(_on_score_updated)
+	ScoreManager.new_best.connect(_on_new_best)
 
 	# 启动游戏
 	GameManager.start_game()
 
 
 func _on_game_started() -> void:
+	# 重置分数
+	ScoreManager.reset_score()
 	pipe_spawner.start_spawning()
 	update_score_display()
 
@@ -38,6 +44,9 @@ func _on_game_started() -> void:
 func _on_game_over() -> void:
 	pipe_spawner.stop_spawning()
 	ground.set_process(false)
+	# 更新游戏结束面板显示
+	final_score_label.text = "Score: " + str(ScoreManager.current_score)
+	best_score_label.text = "Best: " + str(ScoreManager.best_score)
 	game_over_panel.show()
 
 
@@ -50,12 +59,12 @@ func _on_bird_score_passed() -> void:
 	ScoreManager.add_score()
 
 
-func _on_score_changed(_new_score: int) -> void:
-	update_score_display()
-
-
 func _on_score_updated(_current: int, _best: int) -> void:
 	update_score_display()
+
+
+func _on_new_best(_score: int) -> void:
+	new_best_label.show()
 
 
 func update_score_display() -> void:

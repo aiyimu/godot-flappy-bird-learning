@@ -54,9 +54,41 @@ horizontal_alignment = 1
 [node name="RestartButton" type="Button" parent="CanvasLayer/GameOverPanel" unique_id=143806175]
 layout_mode = 0
 offset_left = 238.0
-offset_top = 450.0
+offset_top = 580.0
 offset_right = 338.0
-offset_bottom = 500.0
+offset_bottom = 630.0
 text = "Restart"
+
+[node name="FinalScoreLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1474869636]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 410.0
+offset_right = 288.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="BestScoreLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=124383219]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 510.0
+offset_right = 288.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 24
+text = "Best: 0"
+horizontal_alignment = 1
+
+[node name="NewBestLabel" type="Label" parent="CanvasLayer/GameOverPanel" unique_id=1922500423]
+visible = false
+self_modulate = Color(1, 0.8, 0, 1)
+layout_mode = 0
+offset_left = 288.0
+offset_top = 560.0
+offset_right = 288.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 24
+text = "New Best!"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/GameOverPanel/RestartButton" to="." method="_on_start_button_pressed"]
