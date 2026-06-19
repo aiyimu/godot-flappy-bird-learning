@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/game_over.gd" id="1_gameover"]
+
+[node name="GameOverPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gameover")
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 346.0
+offset_right = 386.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 36
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 580.0
+offset_right = 338.0
+offset_bottom = 630.0
+text = "Restart"
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 417.0
+offset_right = 341.0
+offset_bottom = 456.0
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="BestScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 490.0
+offset_right = 327.0
+offset_bottom = 524.0
+theme_override_font_sizes/font_size = 24
+text = "Best: 0"
+horizontal_alignment = 1
+
+[node name="NewBestLabel" type="Label" parent="."]
+visible = false
+self_modulate = Color(1, 0.8, 0, 1)
+layout_mode = 0
+offset_left = 288.0
+offset_top = 560.0
+offset_right = 288.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 24
+text = "New Best!"
+horizontal_alignment = 1
