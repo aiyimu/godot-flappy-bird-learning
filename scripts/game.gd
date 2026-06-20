@@ -55,11 +55,13 @@ func _on_game_over() -> void:
 
 
 func _on_bird_died() -> void:
+	AudioManager.play_death()
 	ScoreManager.save_high_score()
 	GameManager.end_game()
 
 
 func _on_bird_score_passed() -> void:
+	AudioManager.play_score()
 	ScoreManager.add_score()
 
 

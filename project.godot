@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.6")
 MCPRuntime="*uid://cubjvl0l0iiy6"
 GameManager="*res://scripts/game_manager.gd"
 ScoreManager="*res://scripts/score_manager.gd"
+AudioManager="*res://scripts/audio_manager.gd"
 
 [display]
 

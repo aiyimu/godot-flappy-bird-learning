@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	# 跳跃输入检测
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_velocity
+		AudioManager.play_jump()
 
 	# 移动角色
 	move_and_slide()
